@@ -21,6 +21,7 @@ function getData(url, callback, data = {}) {
         data: data,
         contentType: 'application/json',
         success: callback,
+        error: callback
     });
 }
 
@@ -137,10 +138,13 @@ export function getNextEventData(callback) {
         // get another news
         // eventData = exampleData();
         getData('getNextEventData', (d) => {
+            if (d.response) {
+                alert(d.response);
+                return;
+            }
             eventData = d;
             callback(d.content, d.events[++eventIndex]);
         });
-        // callback(eventData.content, eventData.events[++eventIndex]);
     } else {
         callback(eventData.content, eventData.events[++eventIndex]);
     }
@@ -148,19 +152,24 @@ export function getNextEventData(callback) {
 
 export function postEvent(data, callback) {
     eventPostData.push(data);
-    console.log(eventData);
-    console.log(eventIndex);
-    console.log(eventPostData);
     if (eventData.events.length === eventIndex + 1) {
         postData('postEvent', {id: data.news_id, events: eventPostData}, (res) => {
-            console.log(res);
             if (res.response === 'success')
                 eventPostData = [];
             callback(res.response);
         });
-        // console.log(eventPostData);
-        // eventPostData=[];
     } else
         callback('success');
-    // setTimeout(callback('success'), 3000);
+}
+
+export function update(file, callback) {
+    getData('update', callback, {file: file});
+}
+
+export function count() {
+
+}
+
+export function downloadLabeled() {
+    window.open(wrapUrl('downloadLabeled'));
 }

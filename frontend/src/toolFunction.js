@@ -9,8 +9,11 @@ export function splitSentence(s, removeDuplicate = true) {
 
 const serverURL = 'http://119.23.210.89:3001/';
 
-export function wrapUrl(url) {
-    return serverURL + url + '?time=' + (new Date().getTime());
+export function wrapUrl(url, randParam = true) {
+    let trueURL = serverURL + url;
+    if (randParam)
+        trueURL += '?time=' + (new Date().getTime());
+    return trueURL;
 }
 
 export function removeDuplicate(arr) {

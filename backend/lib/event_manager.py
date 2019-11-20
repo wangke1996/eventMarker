@@ -26,7 +26,10 @@ class EventManager(object):
 
     def fetch_event(self):
         if len(self.event) == 0:
-            pass
+            self.event = self.event_buffer
+            self.event_buffer = []
+        if len(self.event) == 0:
+            return '已经完成标注！'
         target_event = self.event.pop()
         self.event_buffer.append(target_event)
         return target_event
@@ -38,6 +41,16 @@ class EventManager(object):
         self.event_labeled.append(events)
         self.save_change()
         self.remove_from_buffer(news_id)
+
+    def update_event_file(self, file):
+        data = load_json(os.path.join(CONFIG.upload_folder, file))
+        save_json(data, CONFIG.event_all)
+        self.__init__()
+
+    def count(self):
+        unlabeled = len(self.event) + len(self.event_buffer)
+        labeled = len(self.event_labeled)
+        return labeled, unlabeled
 
 
 EVENT = EventManager()

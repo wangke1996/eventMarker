@@ -1,0 +1,26 @@
+.welcome {
+    background-color: rgba(255, 255, 255, .2);
+    margin: 16px 24px 16px 0;
+    float: left;
+    color: white;
+    width: 150px;
+    height: 31px;
+    line-height: 31px;
+}
+
+.loadingSpin {
+    font-size: 2em;
+    display: block;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.noMatchCard {
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+.noMatchCard .title{
+    color: #f50;
+    font-size: 1.2em;
+}

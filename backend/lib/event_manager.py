@@ -15,6 +15,7 @@ class EventManager(object):
         ids_all = set(map(lambda x: x['content']['id'], event_all))
         ids_unlabeled = ids_all - ids_labeled
         event_unlabeled = list(filter(lambda x: x['content']['id'] in ids_unlabeled, event_all))
+        event_unlabeled.sort(key=lambda x: x['content']['date'])
         return event_unlabeled, event_labeled
 
     def __init__(self):

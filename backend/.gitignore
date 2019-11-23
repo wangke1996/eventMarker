@@ -2,6 +2,6 @@
 
 /data
 /static
-/template
+/templates
 **/__pycache__
 **.pyc

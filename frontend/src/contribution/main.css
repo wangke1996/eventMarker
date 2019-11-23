@@ -1,0 +1,96 @@
+.contributionUser {
+    color: #f50;
+}
+
+.contributionRank header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.contributionRank thead th {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.contributionRank tr th {
+    text-align: center;
+}
+
+.contributionRank tr td {
+    text-align: center;
+}
+
+.tips {
+    color: rgb(24, 144, 255);
+}
+
+.contributionRank {
+    font-size: 1.3em;
+    color: #f50;
+}
+
+.currentUserContribution {
+    background-color: rgba(24, 144, 255, 0.5);
+}
+
+.contributionGold {
+    background-color: rgba(255, 215, 0, 0.5);
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+.contributionSilver {
+    background-color: rgba(192, 192, 192, 0.5);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.contributionBronze {
+    background-color: rgba(250, 250, 226, 0.5);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer .title {
+    color: rgb(24, 144, 255);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.footer .progress{
+    margin-top: 1em;
+}
+.footer .field {
+    color: rgb(24, 144, 255);
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+.footer .tips {
+    font-weight: lighter;
+    color: #f50;
+}
+
+.sider {
+    width: 200px;
+    background: #fff;
+}
+
+.sider .menu {
+    height: 100%;
+    borderRight: 0;
+}
+
+.contentLayout {
+    padding: 0 24px;
+}
+
+.contentLayout .content {
+    background: #fff;
+    padding: 24px;
+    margin: 0;
+    /*minHeight: 280px,*/
+}

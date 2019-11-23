@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, Redirect} from "react-router-dom";
-import {Layout, Spin, Menu, Affix} from "antd";
+import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import {Layout, Menu, Affix} from "antd";
 import {PrivateRoute} from "../login/privateRoute";
 import {isLoggedIn} from "../login/auth";
 import {LoginView} from "../login/loginView";
@@ -58,7 +58,8 @@ export class MainPanel extends Component {
                         <Switch>
                             <PrivateRoute exact isloggedin={isLoggedIn()} path='/mark' component={MarkView}/>
                             <PrivateRoute exact isloggedin={isLoggedIn()} path='/manager' component={DataManagerView}/>
-                            <PrivateRoute exact isloggedin={isLoggedIn()} path='/contribution' component={ContributionView}/>
+                            <PrivateRoute exact isloggedin={isLoggedIn()} path='/contribution'
+                                          component={ContributionView}/>
                             <Route exact path='/'
                                    render={() => <LoginView updateNavbar={this.updateNavbar.bind(this)}/>}/>
                             <Route component={NoMatch}/>

@@ -15,6 +15,8 @@ class Config(object):
         self.event_labeled_file_name = 'food_event_labeled.json'
         self.event_labeled = os.path.join(self.event_folder, self.event_labeled_file_name)
 
+        self.contribution_json = os.path.join(self.data_folder, 'contribution.json')
+
         self.upload_folder = os.path.join(self.data_folder, 'upload')
 
         os.makedirs(self.knowledge_folder, exist_ok=True)

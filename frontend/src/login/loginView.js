@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Dropdown, Menu, Icon, Input, Row, Col} from "antd";
+import {Button, Input, Row, Col} from "antd";
 import './loginView.css'
 import {getUserName} from "./auth";
 import {Link} from "react-router-dom";

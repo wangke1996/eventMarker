@@ -9,8 +9,8 @@ export class NoMatch extends Component {
         return (
             <div>
                 <Card className='noMatchCard' style={{width: 500}}
-                      cover={<a href='#'><img onClick={() => window.location.replace('/')} alt='404 Not Found'
-                                              src={Img404}/></a>}>
+                      cover={<img style={{cursor: "hand"}} onClick={() => window.location.replace('/')}
+                                  alt='404 Not Found' src={Img404}/>}>
                     <Meta title={<span className='title'>喵喵喵？？小可爱迷路了吧？点本喵送你回主页(✪ω✪)</span>}/>
                 </Card>
             </div>

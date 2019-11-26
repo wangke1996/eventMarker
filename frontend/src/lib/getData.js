@@ -48,9 +48,9 @@ export function getPopulationCategory(callback) {
     }
 }
 
-let eventData = null;
-let eventIndex = -1;
-let eventPostData = [];
+// let eventData = null;
+// let eventIndex = -1;
+// let eventPostData = [];
 
 // function exampleData() {
 //     const examples = [{
@@ -133,35 +133,57 @@ let eventPostData = [];
 //     return examples[randIndex];
 // }
 
-export function getNextEventData(callback) {
-    if (!eventData || eventData.events.length === eventIndex + 1) {
-        eventIndex = -1;
-        // get another news
-        // eventData = exampleData();
-        getData('getNextEventData', (d) => {
-            if (d.response) {
-                alert(d.response);
-                return;
-            }
-            eventData = d;
-            callback(d.content, d.events[++eventIndex]);
-        });
-    } else {
-        callback(eventData.content, eventData.events[++eventIndex]);
-    }
+export function getNextNews(callback) {
+    getData('getNextEventData', (d) => {
+        if (d.response) {
+            alert(d.response);
+            return;
+        }
+        callback(d);
+    });
 }
 
-export function postEvent(data, callback) {
-    eventPostData.push(data);
-    if (eventData.events.length === eventIndex + 1) {
-        postData('postEvent', {id: data.news_id, events: eventPostData, user: getUserName()}, (res) => {
-            if (res.response === 'success')
-                eventPostData = [];
-            callback(res.response);
-        });
-    } else
-        callback('success');
+export function postEvents(data, callback) {
+    console.log(data);
+    postData('postEvent', {id: data[0].news_id, events: data, user: getUserName()}, (res) => {
+        // if (res.response === 'success')
+        //     eventPostData = [];
+        console.log(res);
+        callback(res.response);
+    });
 }
+
+// export function getNextEventData(callback) {
+//     if (!eventData || eventData.events.length === eventIndex + 1) {
+//         eventIndex = -1;
+//         // get another news
+//         // eventData = exampleData();
+//         getData('getNextEventData', (d) => {
+//             if (d.response) {
+//                 alert(d.response);
+//                 return;
+//             }
+//             eventData = d;
+//             eventIndex++;
+//             callback(eventData, eventIndex);
+//         });
+//     } else {
+//         eventIndex++;
+//         callback(eventData, eventIndex);
+//     }
+// }
+
+// export function postEvent(data, callback) {
+//     eventPostData.push(data);
+//     if (eventData.events.length === eventIndex + 1) {
+//         postData('postEvent', {id: data.news_id, events: eventPostData, user: getUserName()}, (res) => {
+//             if (res.response === 'success')
+//                 eventPostData = [];
+//             callback(res.response);
+//         });
+//     } else
+//         callback('success');
+// }
 
 export function update(file, callback) {
     getData('update', callback, {file: file});
